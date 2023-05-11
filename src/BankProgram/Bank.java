@@ -48,7 +48,7 @@ class Main{
         System.out.println("What do you want to do : Credit or Debit (Type 'c' or 'd' accordingly)");
 
 
-        String option = s.next();;
+        String option = s.next();
 
 
 
