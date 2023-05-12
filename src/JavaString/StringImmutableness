@@ -1,0 +1,21 @@
+
+private String str = "1";
+
+Its important to know how memory works in programming languages. The variable str is not a String Object, like you would think. But it is instead a reference to a String Object, with some address.
+
+Modifying what str points to, does not modify the string that it points to. In fact what happens is something like this:
+
+We have a pool of memory, in our pool is three strings. Each string has an address that allows us to find it.
+
+String 1 - "Hello", Address: 0x449345
+String 2 - "There", Address: 0x058345
+String 3 - "World", Address: 0x004934
+We have a variable that is pointing to each one, we will call them a,b, and c.
+
+If we said: System.out.println(a); Java would print Hello. But a is not "Hello". Instead a is something that contains 0x449345. The computer then goes: "Okay, i'll go take what is at 0x449345 and print it out." When it goes and looks at that address, it finds the string "Hello".
+
+However, if you said: a = "NEW STRING"; a would not point to any of our previous addresses. Instead a new address is created and "NEW STRING" is placed inside that memory location.
+
+This is also how Garbage Collection works in Java. Once you set a equal to "NEW STRING" it no longer points to 0x449345, this tells the garbage collector that that object is safe to remove. This is how your program cleans up after itself, and does not eat up tons of RAM.
+
+Because of this, the reference that points to a string, is not thread safe but the actual object IS! Any immutable object is thead safe, because you CANNOT modify that object at all, you can only modify what your variable points to. You would have to point to a different object entirely to "modify", your immutable object.

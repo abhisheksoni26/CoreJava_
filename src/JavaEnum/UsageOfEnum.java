@@ -6,6 +6,7 @@ public class UsageOfEnum {
 
         enumJava level = enumJava.MEDIUM;
 
+
         switch (level){
             case LOW :
                 System.out.println("Low Level");
